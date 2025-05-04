@@ -1,11 +1,11 @@
-# 🚧 Kubernetes Policy Enforcer
+# Kubernetes Policy Enforcer
 
 **Goal:**  
 Ensure Kubernetes security compliance by enforcing policies at deployment time using **OPA Gatekeeper**.
 
 ---
 
-## 🔒 Introduction
+## Introduction
 
 Modern containerized applications need strong runtime and deployment security. Kubernetes by default is flexible, but lacks built-in enforcement of custom organizational policies like:
 
@@ -17,7 +17,7 @@ This project demonstrates **how to use OPA Gatekeeper** with Kubernetes to enfor
 
 ---
 
-## 🧱 Architecture
+## Architecture
 
 ```
 ┌─────────────────────────────┐
@@ -43,7 +43,7 @@ This project demonstrates **how to use OPA Gatekeeper** with Kubernetes to enfor
 
 ---
 
-## ⚙️ Implementation Steps
+## Implementation Steps
 
 ### 1. Install Minikube & kubectl (in WSL2)
 Follow steps provided in `install_minikube.sh` or manually install:
@@ -146,7 +146,7 @@ kubectl run safe-pod --image=nginx --restart=Never
 
 ---
 
-## 📈 Monitoring
+## Monitoring
 
 Gatekeeper exposes metrics at port `8888` (Prometheus scrape target). You can view:
 
@@ -158,23 +158,23 @@ Optionally integrate with Grafana dashboards for real-time policy observability.
 
 ---
 
-## 📦 Project Structure
+## Project Structure
 
 ```
 kubernetes-policy-enforcer/
 ├── templates/
 │   └── k8srequiredprivileged.yaml
 ├── constraints/
-│   └── deny-privileged.yaml
+│   └── dissallow-privileged.yaml
 ├── test-pods/
-│   └── privileged-pod.yaml
-├── README.md
-└── install_minikube.sh (optional)
+│   ├── privileged-pod.yaml
+│   └── compliant-pod.yaml
+└── README.md
 ```
 
 ---
 
-## ✅ Conclusion
+## Conclusion
 
 - Policies are enforced **before** resources reach the cluster.
 - Prevents insecure workloads in real-time.
